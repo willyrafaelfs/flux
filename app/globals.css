@@ -1,49 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-html {
-  height: 100%;
-}
-
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
+  --background: #020617;
+  --text: #f8fafc;
+  --accent: #6366f1;
 }
 
 body {
-  min-height: 100%;
-  display: flex;
-  flex-direction: column;
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--background);
+  color: var(--text);
+  @apply antialiased overflow-x-hidden relative;
 }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+@layer components {
+  .glass {
+    @apply bg-slate-900/30 backdrop-blur-2xl border border-white/[0.08] rounded-[2rem] shadow-2xl transition-all duration-500;
   }
+  
+  .glass-card {
+    @apply bg-white/[0.02] backdrop-blur-lg border border-white/[0.05] rounded-3xl shadow-xl transition-all;
+  }
+
+  .btn-flux {
+    @apply px-8 py-4 rounded-2xl font-bold transition-all duration-300 flex items-center justify-center gap-2 active:scale-95 text-xs tracking-widest uppercase;
+  }
+
+  .btn-flux-primary {
+    @apply bg-indigo-600 text-white shadow-xl shadow-indigo-500/20 hover:bg-indigo-500 hover:shadow-indigo-500/40;
+  }
+
+  .form-input {
+    @apply w-full px-5 py-4 bg-slate-950/40 border border-white/5 rounded-2xl text-white outline-none transition-all duration-300 focus:border-indigo-500/50 focus:bg-slate-900/60 placeholder:text-slate-700 text-sm;
+  }
+
+  select.form-input { @apply appearance-none cursor-pointer; }
+  input[type="date"].form-input::-webkit-calendar-picker-indicator { filter: invert(1); }
+}
+
+@layer utilities {
+  .mesh-gradient {
+    @apply pointer-events-none fixed inset-0 -z-10 overflow-hidden;
+    background: radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.15) 0px, transparent 50%),
+                radial-gradient(at 100% 0%, rgba(168, 85, 247, 0.1) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(99, 102, 241, 0.1) 0px, transparent 50%),
+                radial-gradient(at 0% 100%, rgba(168, 85, 247, 0.15) 0px, transparent 50%);
+  }
+}
+
+/* Luxury Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(1deg); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes reveal {
+  from { opacity: 0; transform: translateY(30px); filter: blur(10px); }
+  to { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+
+.animate-reveal {
+  animation: reveal 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes pan {
+  from { background-position: 0% 50%; }
+  to { background-position: 100% 50%; }
+}
+
+.animate-pan {
+  background-size: 200% 200%;
+  animation: pan 15s linear infinite alternate;
+}
+
+@keyframes toast {
+  0% { opacity: 0; transform: translateY(20px) scale(0.9); }
+  10% { opacity: 1; transform: translateY(0) scale(1); }
+  90% { opacity: 1; transform: translateY(0) scale(1); }
+  100% { opacity: 0; transform: translateY(10px) scale(0.95); }
+}
+
+.animate-toast {
+  animation: toast 4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes modal-in {
+  from { opacity: 0; transform: scale(0.95) translateY(10px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.animate-modal {
+  animation: modal-in 0.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-800 rounded-full hover:bg-slate-700;
 }
