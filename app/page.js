@@ -440,7 +440,7 @@ export default function Home() {
 
   // --- Dashboard ---
   return (
-    <div className="h-screen bg-[#020617] text-white overflow-hidden flex flex-col selection:bg-indigo-500/30 font-sans">
+    <div className="min-h-screen lg:h-screen bg-[#020617] text-white overflow-y-auto lg:overflow-hidden flex flex-col selection:bg-indigo-500/30 font-sans">
       <div className="mesh-gradient opacity-30"></div>
       
       {/* Top Budget Alert Warning */}
@@ -450,7 +450,7 @@ export default function Home() {
           </div>
       )}
 
-      <div className="max-w-[1800px] w-full mx-auto px-6 lg:px-10 py-4 flex flex-col h-full overflow-hidden">
+      <div className="max-w-[1800px] w-full mx-auto px-6 lg:px-10 py-4 flex flex-col lg:h-full lg:overflow-hidden">
         {/* Compact Header */}
         <header className="flex justify-between items-center mb-6 animate-reveal">
           <div className="flex items-center gap-10">
@@ -532,7 +532,7 @@ export default function Home() {
           </aside>
 
           {/* Main Area (MONITORING ZONE) */}
-          <main className="lg:col-span-9 xl:col-span-9 flex flex-col gap-6 overflow-hidden">
+          <main className="lg:col-span-9 xl:col-span-9 flex flex-col gap-6 lg:overflow-hidden">
              
              {/* Period Selector (Historical Reports Control) */}
              <section className="glass p-3 flex flex-wrap items-center justify-between gap-4 animate-reveal [animation-delay:100ms] border-indigo-500/10">
