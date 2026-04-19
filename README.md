@@ -69,4 +69,4 @@ Flux is built on the principle of **Zero-Server Storage**.
 [willy.rafaelfs@gmail.com](mailto:willy.rafaelfs@gmail.com)
 
 ---
-*Built with ❤️ https://github.com/willyrafaelfs*
+*Built with ❤️ [Willy](https://github.com/willyrafaelfs)*
