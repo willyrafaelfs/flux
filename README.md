@@ -1,36 +1,72 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Flux — Smart Finance AI Dashboard
 
-## Getting Started
+![Flux Dashboard Banner](public/dashboard.png)
 
-First, run the development server:
+**Flux** is a professional, privacy-first personal finance management platform built with Next.js 15 and Google's powerful Gemini AI. It transforms the way you manage receipts and track spending by leveraging AI vision and decentralized storage.
 
+## ✨ Key Features
+
+-   **🤖 AI Vision Engine**: Automatically extract merchant names, dates, categories, and total amounts from receipt photos using Google Gemini 2.0 Flash with human-level accuracy.
+-   **🔐 Privacy-First Architecture**: Your financial data never touches an external database. Everything is synced and stored directly in your private **Google Drive** (`Flux_Receipts` folder).
+-   **📊 Visual Intelligence**: Interactive daily trends, monthly summaries, and category distribution charts built with Recharts.
+-   **📅 Historical Reporting**: Easily switch between months and years to analyze your long-term financial health.
+-   **💡 Smart Insights**: Real-time AI-generated tips and budget warnings based on your spending habits.
+-   **💎 Premium UI**: A state-of-the-art "Glassmorphism 2.0" design with fluid animations and a specialized dark mode aesthetic.
+
+## 🚀 Tech Stack
+
+-   **Framework**: [Next.js 15+](https://nextjs.org/) (App Router)
+-   **AI Engine**: [Google Generative AI (Gemini)](https://ai.google.dev/)
+-   **Authentication**: [NextAuth.js](https://next-auth.js.org/) (Google OAuth)
+-   **Storage**: [Google Drive API](https://developers.google.com/drive) (Hidden App Data / drive.file)
+-   **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+-   **Data Vis**: [Recharts](https://recharts.org/)
+
+## 🛠️ Getting Started
+
+### 1. Clone the repository
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/willyrafaelfs/flux.git
+cd flux
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Install dependencies
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### 3. Environment Setup
+Create a `.env.local` file in the root directory and add the following keys:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```env
+# Google OAuth (for Login & Drive)
+GOOGLE_CLIENT_ID=your_google_client_id
+GOOGLE_CLIENT_SECRET=your_google_client_secret
 
-## Learn More
+# Google Gemini API (for Receipt Scanning)
+GEMINI_API_KEY=your_gemini_api_key
 
-To learn more about Next.js, take a look at the following resources:
+# NextAuth Configuration
+NEXTAUTH_URL=http://localhost:3000
+NEXTAUTH_SECRET=a_random_secure_string_for_session_encryption
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 4. Run Development Server
+```bash
+npm run dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🛡️ Privacy & Security
 
-## Deploy on Vercel
+Flux is built on the principle of **Zero-Server Storage**.
+1.  **Authentication**: Handled securely via Google OAuth.
+2.  **AI Processing**: Images are processed temporarily and are not stored in any external cloud storage other than your own Google Drive.
+3.  **Data Sovereignity**: You own your data. If you delete your Google Drive folder, all transaction history is gone—Flux does not keep a backup.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 👨‍💻 Developer
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**Willy Rafael**  
+[willy.rafaelfs@gmail.com](mailto:willy.rafaelfs@gmail.com)
+
+---
+*Built with ❤️ using Google Gemini & Next.js*
